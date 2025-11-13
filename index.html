@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>Byt FocusDesk</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div>
+        <h1>Byt FocusDesk</h1>
+        <p>Dein leichter Productivity-Hub – Aufgaben, Fokus, Pomodoro.</p>
+      </div>
+      <div class="header-meta">
+        <span class="badge">Vanilla JS</span>
+        <span class="badge">LocalStorage</span>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <!-- LEFT: TASKS -->
+      <section class="tasks-panel">
+        <h2>Aufgaben</h2>
+
+        <form id="task-form" class="task-form">
+          <div class="form-row">
+            <label for="title">Titel</label>
+            <input type="text" id="title" name="title" placeholder="Neue Aufgabe..." required />
+          </div>
+
+          <div class="form-row">
+            <label for="description">Beschreibung</label>
+            <textarea id="description" name="description" rows="2" placeholder="Kurzbeschreibung (optional)"></textarea>
+          </div>
+
+          <div class="form-row form-row-inline">
+            <div>
+              <label for="priority">Priorität</label>
+              <select id="priority" name="priority">
+                <option value="low">Niedrig</option>
+                <option value="medium" selected>Mittel</option>
+                <option value="high">Hoch</option>
+              </select>
+            </div>
+            <div>
+              <label for="tag">Tag</label>
+              <input type="text" id="tag" name="tag" placeholder="z.B. Lua, Frontend" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">Aufgabe hinzufügen</button>
+        </form>
+
+        <div class="task-filters">
+          <button data-filter="all" class="filter-btn active">Alle</button>
+          <button data-filter="todo" class="filter-btn">To Do</button>
+          <button data-filter="in-progress" class="filter-btn">In Bearbeitung</button>
+          <button data-filter="done" class="filter-btn">Erledigt</button>
+        </div>
+
+        <ul id="task-list" class="task-list">
+          <!-- Tasks werden hier dynamisch eingefügt -->
+        </ul>
+      </section>
+
+      <!-- RIGHT: TIMER + SUMMARY -->
+      <section class="focus-panel">
+        <div class="timer-card">
+          <h2>Pomodoro-Timer</h2>
+          <p class="timer-description">
+            Klassischer 25/5-Minuten-Zyklus für fokussiertes Arbeiten.
+          </p>
+
+          <div class="timer-display" id="timer-display">25:00</div>
+
+          <div class="timer-progress">
+            <div id="timer-progress-bar" class="timer-progress-bar"></div>
+          </div>
+
+          <div class="timer-controls">
+            <button id="start-timer" class="btn-primary">Start</button>
+            <button id="pause-timer" class="btn-secondary">Pause</button>
+            <button id="reset-timer" class="btn-ghost">Reset</button>
+          </div>
+
+          <div class="timer-mode">
+            <button data-mode="work" class="mode-btn active">Arbeit (25)</button>
+            <button data-mode="break" class="mode-btn">Pause (5)</button>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <h2>Übersicht</h2>
+          <ul class="summary-list">
+            <li><span>Aufgaben gesamt:</span> <strong id="summary-total">0</strong></li>
+            <li><span>To Do:</span> <strong id="summary-todo">0</strong></li>
+            <li><span>In Bearbeitung:</span> <strong id="summary-in-progress">0</strong></li>
+            <li><span>Erledigt:</span> <strong id="summary-done">0</strong></li>
+          </ul>
+          <p class="summary-hint">
+            Tipp: Nutze Tags wie <code>Lua</code>, <code>Frontend</code> oder <code>Uni</code>,
+            um deine Aufgaben zu gruppieren.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <span>Byt FocusDesk · gebaut von Arshia Bayat</span>
+      <a href="https://github.com/ArshiaByt" target="_blank" rel="noopener">GitHub-Profil öffnen</a>
+    </footer>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
