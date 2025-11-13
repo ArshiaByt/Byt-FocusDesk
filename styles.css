@@ -128,13 +128,6 @@ body {
   border-color: rgba(129, 140, 248, 0.55);
 }
 
-/* FORM */
-
-.task-form {
-  composes: card;
-}
-
-/* composes hack for plain CSS */
 .task-form {
   background: rgba(15, 23, 42, 0.9);
   border-radius: 12px;
@@ -201,8 +194,6 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
-
-/* BUTTONS */
 
 .btn-primary,
 .btn-secondary,
@@ -607,3 +598,4 @@ body {
     transform: translateY(0);
   }
 }
+
